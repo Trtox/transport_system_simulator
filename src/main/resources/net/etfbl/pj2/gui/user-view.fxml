@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.pj2.gui.UserController">
+
+   <!-- Gornji dio - Forma za unos parametara -->
+   <top>
+      <HBox spacing="15.0">
+         <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+         </padding>
+         <children>
+            <Label text="Polazište:" />
+            <ComboBox fx:id="startCityComboBox" promptText="Izaberi grad" />
+
+            <Label text="Odredište:" />
+            <ComboBox fx:id="endCityComboBox" promptText="Izaberi grad" />
+
+            <Label text="Kriterijum:" />
+            <HBox spacing="10.0">
+               <children>
+                  <RadioButton fx:id="timeRadio" text="Najkraće vrijeme">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="criteriaGroup" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="priceRadio" text="Najniža cijena" toggleGroup="$criteriaGroup" />
+                  <RadioButton fx:id="transferRadio" text="Najmanje presjedanja" toggleGroup="$criteriaGroup" />
+               </children>
+            </HBox>
+
+            <Button onAction="#onSearchRoute" text="Pronađi rutu" />
+         </children>
+      </HBox>
+   </top>
+
+   <!-- Centar - Vizualizacija grafa -->
+   <center>
+      <StackPane fx:id="graphPane" prefHeight="400.0">
+         <!-- ovdje će se umetnuti GraphStream ako koristiš SwingNode ili WebView -->
+      </StackPane>
+   </center>
+
+   <!-- Donji dio - Tabele -->
+   <bottom>
+      <VBox prefHeight="541.0" prefWidth="900.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+         </padding>
+         <children>
+            <Label style="-fx-font-weight: bold;" text="Optimalna ruta:" />
+            <TableView fx:id="optimalRouteTable" prefHeight="252.0" prefWidth="880.0">
+               <columns>
+                  <TableColumn fx:id="colStart" prefWidth="213.0" text="Polazak" />
+                  <TableColumn fx:id="colEnd" minWidth="0.0" prefWidth="249.0" text="Dolazak" />
+                  <TableColumn fx:id="colType" minWidth="0.0" prefWidth="203.0" text="Tip" />
+                  <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="214.0" text="Cijena" />
+               </columns>
+            </TableView>
+
+            <!-- Sažetak rute -->
+            <Label fx:id="summaryLabel" style="-fx-font-weight: bold;" text="Ukupno: " />
+
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <Button onAction="#onShowTopRoutes" text="Prikaz dodatnih ruta" />
+               <Button onAction="#onBuySelectedRoute" text="Kupovina karte" />
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+
+</BorderPane>

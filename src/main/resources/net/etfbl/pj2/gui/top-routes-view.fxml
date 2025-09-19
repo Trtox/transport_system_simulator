@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.pj2.gui.TopRoutesController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <ComboBox fx:id="routePickerComboBox" prefWidth="150.0" promptText="Izaberite rutu">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Button fx:id="buyButton" mnemonicParsing="false" onAction="#onBuySelectedRoute" prefHeight="25.0" prefWidth="88.0" text="Kupi kartu" />
+            <Label fx:id="summaryLabel" text="Ukupno:">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TableView fx:id="routeTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="startColumn" prefWidth="150.0" text="Polazak" />
+          <TableColumn fx:id="destinationColumn" minWidth="0.0" prefWidth="125.0" text="Dolazak" />
+            <TableColumn fx:id="timeColumn" prefWidth="157.0" text="Vrijeme" />
+            <TableColumn fx:id="priceColumn" prefWidth="167.0" text="Cijena" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
