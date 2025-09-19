@@ -128,12 +128,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
-                    <compilerArgs>
-                        <arg>--release</arg>
-                        <arg>21</arg>
-                    </compilerArgs>
+                    <release>21</release>
                     <!-- Disable module system -->
                     <useModulePath>false</useModulePath>
                 </configuration>
@@ -189,7 +184,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>net.etfbl.pj2.transport/net.etfbl.pj2.simulation.Simulation</mainClass>
+                            <mainClass>net.etfbl.pj2.simulation.Simulation</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
